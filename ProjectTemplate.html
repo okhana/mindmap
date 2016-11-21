@@ -1,0 +1,61 @@
+<h2 class="sub-header">Projects ( <a href="/projects/new">Add</a> )</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% _.each(projects, function(project,index) { %>
+        <tr>
+            <td><%= index + 1 %></td>
+            <td><a href="/projects/<%= project.get('_id') %>"><%= project.get('name') %></a></td>
+            <td><%= project.get('description') %></td>
+            <td>
+                <a class="delete" href="javascript:void(0)" data-id="<%= project.get('_id') %>">Delete</a>
+                |
+                <a class="share" href="javascript:void(0)" data-id="<%= project.get('_id') %>" data-toggle="modal" data-target="#myModal">Share</a>
+            </td>
+            <% }); %>
+
+        </tbody>
+    </table>
+</div>
+
+<!-- Share Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"><i class="glyphicon glyphicon-share"></i> Share project</h4>
+            </div>
+            <div class="modal-body">
+
+                <h4><a href="javascript:">Mind Map 5</a></h4>
+                <br/>
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="shareWith" class="col-sm-3 control-label"><i class="glyphicon glyphicon-user"></i> Share with</label>
+                        <div class="col-sm-9">
+                            <select id="shareWith" class="form-control">
+                                <option value="">Max</option>
+                                <option value="">Igor</option>
+                                <option value="">Taymoor</option>
+                            </select>
+                        </div>
+                    </div>
+                    <hr/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Share</button>
+            </div>
+        </div>
+    </div>
+</div>

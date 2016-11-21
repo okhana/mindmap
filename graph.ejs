@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>MindMap Editor</title>
+    <link rel="stylesheet" href="/css/graph.css">
+    <link rel="stylesheet" href="/js/libs/jstree/themes/default/style.css" />
+</head>
+
+<body>
+    <div id="colorpickerTrigger"></div>
+
+    <div id="dashboard">
+        <div class="project-name">Physio Diagram</div>
+        <div id="outliner"></div>
+    </div>
+
+    <div id="controls">
+        <button class="save-project">Save</button>
+        <a href="/">Project List</a>
+    </div>
+
+    <div id="graph">
+        <svg>
+            <g id="hints" transform="translate(205,0)">
+                <text y="15">Click anywhere to add a node</text>
+                <text y="30">Double click on it to write inside it</text>
+                <text y="45">Click and drag to create a link</text>
+            </g>
+        </svg>
+    </div>
+</body>
+
+<script type="text/javascript" src="/js/libs/d3.v3.js"></script>
+<script type="text/javascript" src="/js/libs/jstree/libs/jquery.js"></script>
+<script type="text/javascript" src="/js/libs/jquery.simple-color.js"></script>
+
+<script type="text/javascript" src="/js/libs/geometry/intersection.js"></script>
+<script type="text/javascript" src="/js/libs/geometry/point2D.js"></script>
+<script type="text/javascript" src="/js/libs/geometry/vector2D.js"></script>
+
+<script type="text/javascript" src="/js/libs/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="/js/libs/jquery.svg.js"></script>
+<script type="text/javascript" src="/js/libs/jquery.svg.input.js"></script>
+
+<script>var $172 = jQuery.noConflict(true);</script>
+
+<script src="/js/libs/jstree/jstree.js"></script>
+<script src="/js/graph/mind-map.js"></script>
+<script src="/js/graph/graph.js"></script>
+<script src="/js/graph/outliner.js"></script>
+<script src="/js/graph/cell.js"></script>
+<script src="/js/graph/node-widget.js"></script>
+
+<% if (projectId) { %>
+<script>
+    MM.graph.projectId = <%-JSON.stringify(projectId)%>;
+</script>
+<% }%>
+
+</html>

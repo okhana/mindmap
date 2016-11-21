@@ -1,0 +1,20 @@
+<h2 class="sub-header">Add Project ( <a href="/#/projects">List</a> )</h2>
+<form role="form">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter name" value="<%= project.get('name')%>">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" rows="3">
+            <%= project.get('description')%>
+        </textarea>
+    </div>
+    <button type="submit" class="btn btn-default" id="saveProject" data-id="<%= project.get('_id')%>">Submit</button>
+</form>
+<hr/>
+<!--<div class="alert alert-success hide" ></div>-->
+
+<div class="alert alert-success alert-dismissable hide" id="saved">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+</div>
